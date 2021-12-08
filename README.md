@@ -1,1 +1,1 @@
-# naverShopTrend
+# semiProject

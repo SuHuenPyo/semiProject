@@ -79,3 +79,86 @@ table{
     top:-4px;
     right:-5px;
   }
+
+  .container {
+    float: left;
+  }
+
+  .top img {
+    width: 25px;
+    height: 25px;
+    padding-right: 12px;
+    float: left;
+    margin-left: 30px;
+  }
+
+  .top #coinTitle {
+    font-size: 20px;
+    margin-top: 50px;
+    padding-bottom: 20px;
+    text-align: left;
+  }
+
+  #currentPriceTitle {
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 100px;
+    text-align: left;
+    padding-left: 30px;
+  }
+
+  #info {
+    display: flex;
+  }
+
+  #info #infoLeft {
+    margin-left: 20px;
+    text-align: left;
+    flex: 1;
+  }
+
+  #totalPrice {
+    width: 500px;
+    padding-bottom: 15px; 
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  #TransactionAmout24 {
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  #totalMaximumPrice {
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  #info #infoRight {
+    flex: 1;
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  #circulation {
+    width: 500px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  #totalSupply {
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  #maximumSupply {
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  #infoLeft .US {
+    float: right;
+  }
+
+  #infoRight .US {
+    float: right;
+  }

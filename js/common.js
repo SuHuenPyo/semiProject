@@ -1,3 +1,7 @@
+//ajax 호출 모듈 load 
+import Ajax from './callAPI.js'
+
+
 // list 라이브러리
 let options = {
     valueNames: ['number', 'name','sales', 'hour', 'day', 'week', 'count', 'total', 'graph']
@@ -45,3 +49,6 @@ function drawChart() {
     
     chart1.draw(data2, options);
 }
+
+
+

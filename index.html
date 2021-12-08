@@ -5,8 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
+    <div id="users">
+        <input class="search" placeholder="Search" />
+        <button class="sort" data-sort="name">
+          Sort by name
+        </button>
+        <table>
+          <!-- IMPORTANT, class="list" have to be at tbody -->
+          <tbody class="list">
+            <tr>
+              <td class="name">#</td>
+              <td class="name">코인</td>
+              <td class="name">시세 </td>
+              <td class="name">1시간</td>
+              <td class="name">24시간</td>
+              <td class="name">7일</td>
+              <td class="name">24시간 거래량</td>
+              <td class="name">시가총액</td>
+              <td class="name">최근일주일</td>
+            </tr>
+            <tr>
+              <td class="born">1</td>
+              <td class="born">비트코인 BTC</td>
+              <td class="born">US$50,627.57</td>
+              <td class="born">0.2%</td>
+              <td class="born">-1.2%</td>
+              <td class="born">-11.2%</td>
+              <td class="born">US$28,897,655,628</td>
+              <td class="born">US$956,597,398,559</td>
+              <td class="born"></td>
+            </tr>
+            <tr>
+              <td class="born">2</td>
+              <td class="born">이더리움 ETH</td>
+              <td class="born">US$4,365.92</td>
+              <td class="born">0.5%</td>
+              <td class="born">-0.1%</td>
+              <td class="born">-5.8%</td>
+              <td class="born">US$21,485,194,440</td>
+              <td class="born">US$518,617,629,271</td>
+              <td class="born"></td>
+            </tr>
+          </tbody>
+        </table>   
+      </div>
     open console(F12)
     <script src="./js/common.js"></script>
 </body>

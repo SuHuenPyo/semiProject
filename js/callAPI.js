@@ -1,12 +1,7 @@
 //set urls
 const URL_COMMON = "https://api.coingecko.com/api/v3/";
 
-<<<<<<< HEAD
-const URL_PING                      = URL_COMMON+"ping/";
-const URL_SUPPORTED_VS_CURRENCIES   = URL_COMMON+"simple/supported_vs_currencies";
-const URL_SIMPLE_PRICE              = URL_COMMON+"simple/price"
-const URL_COINS_LIST                = URL_COMMON+"coins/list";
-=======
+
 const URL_PING                              = URL_COMMON+"ping/";
 const URL_SUPPORTED_VS_CURRENCIES           = URL_COMMON+"simple/supported_vs_currencies";
 const URL_COINS_LIST                        = URL_COMMON+"coins/list";
@@ -21,7 +16,6 @@ const URL_EXCHANGES_LIST                    = URL_COMMON+"exchanges/list";
 const URL_EXCHANGES_BINANCE                 = URL_COMMON+"exchanges/binance";
 const URL_EXCHANGES_RATES                   = URL_COMMON+"exchange_rates";
 const URL_GLOBAL                            = URL_COMMON+"global";
->>>>>>> 29bd320dbba074d7ac52318d842bee6bd2e70759
 
 const promiseAjax = (method, url, payload)=>{
     return new Promise((resolve, reject) => {

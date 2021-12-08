@@ -9,8 +9,8 @@ const URL_COINS_LIST                = URL_COMMON+"coins/list";
 =======
 const URL_PING                              = URL_COMMON+"ping/";
 const URL_SUPPORTED_VS_CURRENCIES           = URL_COMMON+"simple/supported_vs_currencies";
-const URL_SIMPLE_PRICE                      = URL_COMMON+"simple/price";
 const URL_COINS_LIST                        = URL_COMMON+"coins/list";
+const URL_SIMPLE_PRICE                      = URL_COMMON+"simple/price";
 const URL_COINS_MARKETS                     = URL_COMMON+"coins/markets";
 const URL_COINS_BITCOIN                     = URL_COMMON+"coins/bitcoin";
 const URL_COINS_BITCOIN_MARKET_CHART        = URL_COMMON+"coins/bitcoin/market_chart";

@@ -97,12 +97,13 @@ function initMainContent(){
         newRow.insertCell(0).innerText=i+1;
         newRow.insertCell(1).innerText = listUsdMarket[i].name;
         newRow.insertCell(2).innerText = "US$"+listUsdMarket[i].current_price;
-        newRow.insertCell(3).innerText 
-        newRow.insertCell(4).innerText = listUsdMarket[i].price_change_percentage_24h+"%";
+        newRow.insertCell(3).innerText = listUsdMarket[i].price_change_percentage_24h+"%";
+        newRow.insertCell(4).innerText
         newRow.insertCell(5).innerText
         newRow.insertCell(6).innerText
         newRow.insertCell(7).innerText
         newRow.insertCell(8).innerText
+        newRow.insertCell(9).innerText
         
         console.log(listUsdMarket[i].name); 
 
@@ -301,9 +302,6 @@ function drawChart() {
     chart.draw(data1, options);
 
         
-    let chart1 = new google.visualization.CandlestickChart(document.getElementById("chart_div1"));
-    
-    chart1.draw(data2, options);
 }
 
 

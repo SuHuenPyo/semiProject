@@ -8,7 +8,7 @@ const URL_COINS_LIST                        = URL_COMMON+"coins/list";
 const URL_SIMPLE_PRICE                      = URL_COMMON+"simple/price";
 const URL_COINS_MARKETS                     = URL_COMMON+"coins/markets";
 const URL_COINS_BITCOIN                     = URL_COMMON+"coins/bitcoin";
-const URL_COINS_BITCOIN_MARKET_CHART        = URL_COMMON+"coins/bitcoin/market_chart";
+const URL_COINS_BITCOIN_MARKET_CHART        = URL_COMMON+"coins/";
 const URL_COINS_CATEGORIES_LIST             = URL_COMMON+"coins/categories/list";
 const URL_COINS_CATEGORIES                  = URL_COMMON+"coins/categories";
 const URL_EXCHANGES                         = URL_COMMON+"exchanges";
@@ -92,29 +92,59 @@ function initMainContent(){
 
 
     //data = [[symbol_coinListJson], ]
-    for(let i = 0 ; i< 100 ; i++){
+    for(let i = 0 ; i< 30 ; i++){
         let newRow = table.insertRow();
-        newRow.insertCell(0).innerText=i+1;
-        newRow.insertCell(1).innerText = listUsdMarket[i].name;
-        newRow.insertCell(2).innerText = "US$"+listUsdMarket[i].current_price;
-        newRow.insertCell(3).innerText = listUsdMarket[i].price_change_percentage_24h+"%";
-        newRow.insertCell(4).innerText = "US$"+listUsdMarket[i].high_24h;
-        newRow.insertCell(5).innerText = "US$"+listUsdMarket[i].low_24h;
-        newRow.insertCell(6).innerText = "US$"+listUsdMarket[i].ath;
-        newRow.insertCell(7).innerText = "US$"+listUsdMarket[i].atl;
-        newRow.insertCell(8).innerText = "US$"+listUsdMarket[i].total_volume;
-        newRow.insertCell(9).innerText = "차트";
+        row = newRow.insertCell(0);
+        row.className="num";
+        row.innerHTML = i+1;
+
+        row = newRow.insertCell(1);
+        row.className="title";
+        row.innerHTML = listUsdMarket[i].name;
+
+        row = newRow.insertCell(2)
+        row.className="price";
+        row.innerHTML = "US$"+listUsdMarket[i].current_price;
+
+        
+        row = newRow.insertCell(3)
+        row.className="price";
+        row.innerHTML = listUsdMarket[i].price_change_percentage_24h+"%";
+
+        row = newRow.insertCell(4)
+        row.className="Variance";
+        row.innerHTML = "US$"+listUsdMarket[i].high_24h;
+
+        row = newRow.insertCell(5)
+        row.className="high";
+        row.innerHTML = "US$"+listUsdMarket[i].low_24h;
+
+        row = newRow.insertCell(6)
+        row.className="ATH";
+        row.innerHTML = "US$"+listUsdMarket[i].ath;
+
+        row = newRow.insertCell(7)
+        row.className="ATL";
+        row.innerHTML =  "US$"+listUsdMarket[i].atl;
+
+        row = newRow.insertCell(8)
+        row.className="TVL";
+        row.innerHTML = "US$"+listUsdMarket[i].total_volume;
+
+        row = newRow.insertCell(9);
+        row.className="graph";
+        row.id="chart_div";
+
+        request_coins_id_market_chart("GET", URL_COINS_BITCOIN_MARKET_CHART+ listUsdMarket[i].id+"/market_chart?vs_currency=usd&days=7&interval=daily", listUsdMarket[i].name);
+        
         
         console.log(listUsdMarket[i].name); 
-
         
         
     }
-    
-    //행개수
-    const tableRowCnt = table.rows.length;
 
-    console.log("행 개수:" + tableRowCnt);
+
+          
 
     //열개수
     
@@ -217,11 +247,28 @@ function request_coins_id_history(method, param=""){
     
     console.log("request_coins_id_history() 종료");
 }
-function request_coins_id_market_chart(method, param=""){
+function request_coins_id_market_chart(method, param="", title){
     console.log("request_coins_id_market_chart() 시작");
 
-    promiseAjax(method, URL_SUPPORTED_VS_CURRENCIES+param).then(res=> {
-        console.log(res);
+    promiseAjax(method, param).then(res=> {
+        priceData = JSON.parse(res);
+        // console.log(priceData)
+        console.log(title);
+        for(let i =0 ; i< priceData.prices.length ; i++){
+            let time = new Date(priceData.prices[i][0]);
+            let price = priceData.prices[i][1];
+            console.log(time+":"+price);
+        }
+        
+        
+        
+
+        //console.log("Date: "+date.getDate()+
+        //   "/"+(date.getMonth()+1)+
+        //   "/"+date.getFullYear()+
+        //   " "+date.getHours()+
+        //   ":"+date.getMinutes()+
+        //   ":"+date.getSeconds());
 
     }).catch(err=> console.error(err));
     
@@ -261,7 +308,7 @@ function request_coins_id_ohlc(method, param=""){
 
 // list 라이브러리
 let options = {
-    valueNames: ['number', 'name','sales', 'hour', 'day', 'week', 'count', 'total', 'graph']
+    valueNames: ['num', 'title','price', 'Variance', 'high', 'low', 'ATH', 'ATL', 'TVL','graph']
 };
 
 let coinList = new List('coinList', options);
@@ -274,7 +321,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
     let data1 = google.visualization.arrayToDataTable([
-      ['1일', 10, 20, 30, 40],
+      ['1일', 50, 10, 10, 10],
       ['2일', 20, 30, 40, 50],
       ['3일', 30, 40, 50, 60],
       ['4일', 60, 50, 40, 30],
@@ -282,16 +329,6 @@ function drawChart() {
       ['6일', 40, 30, 20, 10]  
         // 모든 data는 배열이고 [0]번째는 label 
     ], true);
-
-    let data2 = google.visualization.arrayToDataTable([
-        ['1일', 10, 20, 30, 40],
-        ['2일', 20, 30, 40, 50],
-        ['3일', 30, 40, 50, 60],
-        ['4일', 60, 50, 40, 30],
-        ['5일', 50, 40, 30, 20],
-        ['6일', 40, 30, 20, 10]  
-          // 모든 data는 배열이고 [0]번째는 label 
-      ], true);
     
     let options = {
         legend: 'none'
@@ -303,6 +340,5 @@ function drawChart() {
 
         
 }
-
 
 

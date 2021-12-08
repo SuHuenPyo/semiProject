@@ -8,15 +8,19 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <body>
     <div id="coinList">
-        <input class="search" placeholder="Search" />
-        <button class="sort" data-sort="name">
-          Sort by name
-        </button>
+        <div id="searchArea">
+            <input class="search" placeholder="Search" />
+            <button class="sort" data-sort="name">
+            Search
+            </button>
+        </div>
+        
         <table id="coinTableList">
           <thead>
-            <tr>
+            <tr id="tableHead">
               <th>#</th>
               <th>코인</th>
               <th>시세</th>
@@ -34,7 +38,7 @@
             <tr>
               <td class="num">1</td>
               <td class="title">비트코인 BTC</td>
-              <td class="pride">US$50,627.57</td>
+              <td class="price">US$50,627.57</td>
               <td class="Variance">24시간 변동</td>
               <td class="high">24시간 최고점</td>
               <td class="low">24시간 최저점</td>
@@ -47,10 +51,27 @@
           </tbody>
         </table>   
       </div>
+
+
+
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8" style="margin-top:300px;">
+            <div class="centerbox" id="centerbox" style="height:400; width:400px;">
+            
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
 
     <script src="./js/common.js"></script>
+
+    
+    
 </body>
 </html>

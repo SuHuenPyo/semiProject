@@ -81,9 +81,9 @@ initMainContent();
 function initMainContent(){
     
     
-    const table = document.getElementById("coinTableList");
+    const table = document.getElementById("list");
 
-    //let symbol_coinListJson = syncAjax(URL_SUPPORTED_VS_CURRENCIES);
+    //let symbol_coinListJson = syncAjax(URL_SUPPORTED_VS_ CURRENCIES);
 
     //usd 달러 마켓 기준으로 나열
     let listUsdMarket = syncAjax(URL_COINS_MARKETS+'?vs_currency=usd');
@@ -106,7 +106,6 @@ function initMainContent(){
         row.className="price";
         row.innerHTML = "US$"+listUsdMarket[i].current_price;
 
-        
         row = newRow.insertCell(3)
         row.className="price";
         row.innerHTML = listUsdMarket[i].price_change_percentage_24h+"%";
@@ -133,14 +132,12 @@ function initMainContent(){
 
         row = newRow.insertCell(9);
         row.className="graph";
-        row.id="chart_div";
+        row.id=`chart_div${i}`;
 
         request_coins_id_market_chart("GET", URL_COINS_BITCOIN_MARKET_CHART+ listUsdMarket[i].id+"/market_chart?vs_currency=usd&days=7&interval=daily", listUsdMarket[i].name);
         
-        
         console.log(listUsdMarket[i].name); 
-        
-        
+
     }
 
 
@@ -260,9 +257,6 @@ function request_coins_id_market_chart(method, param="", title){
             console.log(time+":"+price);
         }
         
-        
-        
-
         //console.log("Date: "+date.getDate()+
         //   "/"+(date.getMonth()+1)+
         //   "/"+date.getFullYear()+
@@ -311,8 +305,10 @@ let options = {
     valueNames: ['num', 'title','price', 'Variance', 'high', 'low', 'ATH', 'ATL', 'TVL','graph']
 };
 
-let coinList = new List('coinList', options);
+let coinList = new List('coinTableList', options);
 
+
+for(let i = 0;i <30;i++){
 //차트 라이브러리
 google.charts.load('current', {
     'packages': ['corechart']
@@ -334,11 +330,8 @@ function drawChart() {
         legend: 'none'
     };
     
-    let chart = new google.visualization.CandlestickChart(document.getElementById("chart_div"));
+    let chart = new google.visualization.CandlestickChart(document.getElementById(`chart_div${i}`));
     
     chart.draw(data1, options);
-
-        
 }
-
-
+}

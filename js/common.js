@@ -98,12 +98,12 @@ function initMainContent(){
         newRow.insertCell(1).innerText = listUsdMarket[i].name;
         newRow.insertCell(2).innerText = "US$"+listUsdMarket[i].current_price;
         newRow.insertCell(3).innerText = listUsdMarket[i].price_change_percentage_24h+"%";
-        newRow.insertCell(4).innerText
-        newRow.insertCell(5).innerText
-        newRow.insertCell(6).innerText
-        newRow.insertCell(7).innerText
-        newRow.insertCell(8).innerText
-        newRow.insertCell(9).innerText
+        newRow.insertCell(4).innerText = "US$"+listUsdMarket[i].high_24h;
+        newRow.insertCell(5).innerText = "US$"+listUsdMarket[i].low_24h;
+        newRow.insertCell(6).innerText = "US$"+listUsdMarket[i].ath;
+        newRow.insertCell(7).innerText = "US$"+listUsdMarket[i].atl;
+        newRow.insertCell(8).innerText = "US$"+listUsdMarket[i].total_volume;
+        newRow.insertCell(9).innerText = "차트";
         
         console.log(listUsdMarket[i].name); 
 

@@ -1,4 +1,15 @@
 /* common */
+
+body{
+  margin: 0 auto;
+  width: 1000px;
+  text-align: center;
+}
+
+table{
+  border-collapse: collapse;
+}
+
 .list {
     font-family:sans-serif;
   }

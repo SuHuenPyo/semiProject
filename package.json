@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SuHuenPyo/semiProject/issues"
   },
-  "homepage": "https://github.com/SuHuenPyo/semiProject#readme"
+  "homepage": "https://github.com/SuHuenPyo/semiProject#readme",
+  "dependencies": {
+    "list.js": "^2.3.1"
+  }
 }

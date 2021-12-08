@@ -9,51 +9,56 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
-    <div id="users">
+    <div id="coinList">
         <input class="search" placeholder="Search" />
         <button class="sort" data-sort="name">
           Sort by name
         </button>
         <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>코인</th>
+              <th>시세</th>
+              <th>1시간</th>
+              <th>24시간</th>
+              <th>7일</th>
+              <th>24시간 거래량</th>
+              <th>시가총액</th>
+              <th>최근 일주일</th>
+            </tr>
+          </thead>
           <!-- IMPORTANT, class="list" have to be at tbody -->
           <tbody class="list">
             <tr>
-              <td class="name">#</td>
-              <td class="name">코인</td>
-              <td class="name">시세 </td>
-              <td class="name">1시간</td>
-              <td class="name">24시간</td>
-              <td class="name">7일</td>
-              <td class="name">24시간 거래량</td>
-              <td class="name">시가총액</td>
-              <td class="name">최근일주일</td>
+              <td class="num">1</td>
+              <td class="name">비트코인 BTC</td>
+              <td class="sales">US$50,627.57</td>
+              <td class="hour">0.2%</td>
+              <td class="day">-1.2%</td>
+              <td class="week">-11.2%</td>
+              <td class="count">US$28,897,655,628</td>
+              <td class="total">US$956,597,398,559</td>
+              <td class="graph" id="chart_div"></td>
             </tr>
             <tr>
-              <td class="born">1</td>
-              <td class="born">비트코인 BTC</td>
-              <td class="born">US$50,627.57</td>
-              <td class="born">0.2%</td>
-              <td class="born">-1.2%</td>
-              <td class="born">-11.2%</td>
-              <td class="born">US$28,897,655,628</td>
-              <td class="born">US$956,597,398,559</td>
-              <td class="born"></td>
-            </tr>
-            <tr>
-              <td class="born">2</td>
-              <td class="born">이더리움 ETH</td>
-              <td class="born">US$4,365.92</td>
-              <td class="born">0.5%</td>
-              <td class="born">-0.1%</td>
-              <td class="born">-5.8%</td>
-              <td class="born">US$21,485,194,440</td>
-              <td class="born">US$518,617,629,271</td>
-              <td class="born"></td>
+              <td class="num">2</td>
+              <td class="name">이더리움 ETH</td>
+              <td class="sales">US$4,365.92</td>
+              <td class="hour">0.5%</td>
+              <td class="day">-0.1%</td>
+              <td class="week">-5.8%</td>
+              <td class="count">US$21,485,194,440</td>
+              <td class="total">$518,617,629,271</td>
+              <td class="graph" id="chart_div1"></td>
             </tr>
           </tbody>
         </table>   
       </div>
-    open console(F12)
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+
     <script src="./js/common.js"></script>
 </body>
 </html>
